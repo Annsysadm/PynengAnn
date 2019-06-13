@@ -12,38 +12,25 @@ Outbound Interface     FastEthernet0/0
 '''
 
 ospf_route = 'O        10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0'
-
+ospf_route = ospf_route.replace('[', ' ') # убираем лишние квадратные скобки
+ospf_route = ospf_route.replace(']', ' ') # убираем лишние квадратные скобки
 b = ospf_route.split(',') # получился список
 print('b =', b)
 e = b[1:3]
 print('e =', e)
 c = b[0].split() # нулевой элемент списка b перевели в список
+c.pop(3)
 print('c =', c)
-g = c[4]
-print('g =', g)
-print(str(c[:3]))
-print(str(b[1:3]))
-f = str(c[:3]) + g + str(b[1:3])
+f = c[:4] + b[1:3]
 print('f =', f)
 
-#d = f + c
-#print('d =', d )
-
 
 ip_template = '''
-Protocol:              {1:<8}
-Prefix:                {2:<8}
-AD/Metric:             {3:<8}
-Next-Hop:              {5:<8}
-Last update:           {5:<8}
-Outbound Interface     {6:<8}
+Protocol:              {}
+Prefix:                {}
+AD/Metric:             {}
+Next-Hop:              {}
+Last update:           {}
+Outbound Interface     {}
 '''
-
-ip_template = '''
-Protocol:              {1:<8}
-Prefix:                {2:<8}
-AD/Metric:             {3:<8}
-Next-Hop:              {5:<8}
-Last update:           {5:<8}
-Outbound Interface     {6:<8}
-'''
+print(ip_template.format('O', '10.0.24.0/24', '110/41', '10.0.13.3', ' 3d18h', ' FastEthernet0/0'))
