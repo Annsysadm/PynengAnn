@@ -42,3 +42,5 @@ london_co = {
         'routing': True
     }
 }
+
+print(london.get(vlan, 'Такого параметра нет'))
