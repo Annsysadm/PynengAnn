@@ -51,4 +51,5 @@ keys = keys.replace('[', '(')
 parametr = input('Введите имя параметра ' + keys + ': ')
 
 print(london_co[device])
+
 print(london_co[device].get(parametr, 'Такого параметра нет'))
