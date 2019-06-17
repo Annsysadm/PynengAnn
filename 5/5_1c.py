@@ -42,5 +42,13 @@ london_co = {
         'routing': True
     }
 }
+device = input('Введите имя устройства: ')
+keys = str(list(london_co[device].keys()))
+keys = keys.replace("'", "")
+keys = keys.replace(']', ')')
+keys = keys.replace('[', '(')
 
-print(london.get(vlan, 'Такого параметра нет'))
+parametr = input('Введите имя параметра ' + keys + ': ')
+
+print(london_co[device])
+print(london_co[device].get(parametr, 'Такого параметра нет'))
