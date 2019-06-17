@@ -13,3 +13,25 @@ Mask:
 Проверить работу скрипта на разных комбинациях сеть/маска.
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+ip = input('Введите IP-сети в формате 10.1.1.0/24:  ')
+ip = ip.split('/')
+m = int(ip[1]) # mask
+number_of_nulls = 32 - m
+ip = ip[0].split('.')
+
+ip[0], ip[1], ip[2], ip[3] = int(ip[0]), int(ip[1]), int(ip[2]), int(ip[3])
+
+print(f'''Network:
+{ip[0]:<8}  {ip[1]:<8}  {ip[2]:<8}  {ip[3]:<8}
+{ip[0]:08b}  {ip[1]:08b}  {ip[2]:08b}  {ip[3]:08b}''')
+
+mask = m * '1' + number_of_nulls * '0'
+list_mask = [int(mask[:8], 2), int(mask[8:16], 2), int(mask[16:24], 2), int(mask[24:32], 2)]
+
+print(f'''Mask:
+/{m}
+{list_mask[0]:<8}  {list_mask[1]:<8}  {list_mask[2]:<8}  {list_mask[3]:<8}
+{list_mask[0]:<08b}  {list_mask[1]:<08b}  {list_mask[2]:<08b}  {list_mask[3]:<08b}
+''')
+# все готово
