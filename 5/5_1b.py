@@ -43,11 +43,10 @@ london_co = {
 device = input('Введите имя устройства: ')
 keys = list(london_co[device].keys())
 keys = str(keys)
-keys = keys.replace("'", "")
-keys = keys.replace(']', ')')
-keys = keys.replace('[', '(')
+keys = keys.replace("'", "").replace(']', ')').replace('[', '(')
 
-parametr = input('Введите имя параметра ' + keys + ': ')
 
+#parametr = input('Введите имя параметра ' + keys + ': ')
+parametr = input('Введите имя параметра {} : '.format(keys))
 print(london_co[device])
 print(london_co[device][parametr])
