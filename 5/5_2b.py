@@ -1,3 +1,4 @@
+#!home/juno-deb/Python-3.7.3 python
 # -*- coding: utf-8 -*-
 '''
 Задание 5.2b
@@ -6,7 +7,12 @@
 а передавались как аргумент скрипту.
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
-#!/usr/bin/env python
+
+
+#import sys
+
+#print(sys.executable)
+
 from sys import argv
 ip = argv[1]
 
