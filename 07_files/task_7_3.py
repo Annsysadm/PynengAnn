@@ -17,3 +17,11 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+#!/usr/bin/env python
+
+with open('CAM_table.txt') as srs:
+    for line in srs:
+        if 'Gi' in line:
+            vlan, mac, _, intf = line.split()
+            print(f'{vlan:8}{mac:17}{intf:8}')
+
