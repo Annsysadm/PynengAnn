@@ -12,5 +12,12 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
-
+#!/usr/bin/env python
+from sys import argv
+file_name = argv[1]
 ignore = ['duplex', 'alias', 'Current configuration']
+
+with open(file_name) as srs, open('config_sw1_cleared.txt', 'w') as dest:
+     for line in srs:
+         if not (set(ignore) & set(line.split())):
+             dest.write(line)
