@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
 Задание 7.2b
@@ -12,12 +13,13 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
-#!/usr/bin/env python
+
 from sys import argv
 file_name = argv[1]
+# аргумент на вход config_sw1.txt
 ignore = ['duplex', 'alias', 'Current configuration']
 
-with open(file_name) as srs, open('config_sw1_cleared.txt', 'w') as dest:
+with open(file_name) as srs, open('config_sw3_cleared.txt', 'w') as dest:
      for line in srs:
          if not (set(ignore) & set(line.split())):
              dest.write(line)

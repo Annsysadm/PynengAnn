@@ -1,4 +1,5 @@
-#!home/juno-deb/Python-3.7.3 python
+#! /usr/bin/env python
+
 # -*- coding: utf-8 -*-
 '''
 Задание 5.2b
@@ -12,7 +13,8 @@
 #import sys
 
 #print(sys.executable)
-
+# необходимо ввести аргумент к файлу - сеть/маска
+#'Введите IP-адрес сети в формате 10.1.1.1/24
 from sys import argv
 ip = argv[1]
 
