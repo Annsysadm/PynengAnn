@@ -15,5 +15,12 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
-
+#!/usr/bin/env python
+from sys import argv
+file_srs, file_dest = argv[1:]
 ignore = ['duplex', 'alias', 'Current configuration']
+
+with open(file_srs) as srs, open(file_dest, 'w') as dest:
+    for line in srs:
+        if not (set(ignore) & set(line.split())):
+            dest.write(line)
