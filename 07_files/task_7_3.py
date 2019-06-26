@@ -21,7 +21,7 @@
 
 with open('CAM_table.txt') as srs:
     for line in srs:
-        if 'Gi' in line:
+        if not line.startswith('-') and not line.startswith('\n') and line.split()[0].isdigit():
             vlan, mac, _, intf = line.split()
             print(f'{vlan:8}{mac:17}{intf:8}')
 
