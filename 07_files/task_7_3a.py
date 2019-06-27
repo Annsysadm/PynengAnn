@@ -30,9 +30,11 @@ with open('CAM_table.txt') as srs:
             vlan, mac, _, intf = line.split()
             line_list.append([int(vlan), [mac, intf]])
             result = sorted(line_list)
-
             #result = sorted([vlan, mac, intf])
             #print(result)
             #print(f'{vlan:8}{mac:17}{intf:8}')
     #print(result)
-print(str(result))
+#print(result)
+for element in result:
+    print(f'{element[0]:<5} {element[1][0]:17}{element[1][1]:8}')
+
