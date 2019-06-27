@@ -22,3 +22,17 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+#!/usr/bin/env python
+line_list = []
+with open('CAM_table.txt') as srs:
+    for line in srs:
+        if not line.startswith('-') and not line.startswith('\n') and line.split()[0].isdigit():
+            vlan, mac, _, intf = line.split()
+            line_list.append([int(vlan), [mac, intf]])
+            result = sorted(line_list)
+
+            #result = sorted([vlan, mac, intf])
+            #print(result)
+            #print(f'{vlan:8}{mac:17}{intf:8}')
+    #print(result)
+print(str(result))
